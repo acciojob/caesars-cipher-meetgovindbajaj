@@ -51,7 +51,6 @@ const lookup = {
   "}": "}",
   "[": "[",
   "]": "]",
-  s: "s",
   "\t": "\t",
   "\n": "\n",
   0: 0,
@@ -65,12 +64,18 @@ const lookup = {
   8: 8,
   9: 9,
   " ": " ",
+  '"': '"',
+  "'": "'",
+  ":": ":",
+  ";": ";",
+  "`": "`",
 };
 
 function rot13(encodedStr) {
-  let decodedArr = encodedStr.split("");
-  return decodedArr.map((char) => lookup[char]);;
+  let decodedArr = encodedStr.toUpperCase().split("");
+  return decodedArr.map((char) => lookup[char]).join("");
 }
 
 console.log(rot13("SERR YBIR? NPPVBWBO"));
+
 window.rot13 = rot13;
